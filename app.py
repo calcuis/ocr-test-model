@@ -20,14 +20,12 @@ from .core.vllm import VLLMServer
 
 METADATA = []
 
-
 def add_field(field_name: str, type: str, description: str):
     global METADATA
     METADATA.append(
         {"field_name": field_name, "type": type, "description": description},
     )
     return update_fields_display()
-
 
 def update_fields_display():
     dict_data = {"index": [], "type": [], "name": [], "description": []}
@@ -38,19 +36,16 @@ def update_fields_display():
         dict_data["description"].append(metadata["description"])
     return pd.DataFrame(dict_data)
 
-
 def clear_fields():
     global METADATA
     METADATA = []
     return update_fields_display()
-
 
 def remove_field(index):
     global METADATA
     if 0 <= index < len(METADATA):
         del METADATA[index]
     return update_fields_display()
-
 
 def add_predefined_fields(doc_type):
     global METADATA
@@ -74,7 +69,6 @@ def add_predefined_fields(doc_type):
     ]
     METADATA = fields + tables
     return update_fields_display()
-
 
 def define_keys_and_extract(model_name: str, max_img_size: int, concurrency_limit: int):
     gr.Markdown(
@@ -202,7 +196,6 @@ def define_keys_and_extract(model_name: str, max_img_size: int, concurrency_limi
         concurrency_limit=concurrency_limit,
     )
 
-
 def gradio_app(
     model_name: str,
     gradio_port: int,
@@ -259,7 +252,6 @@ def gradio_app(
             server_port=gradio_port,
             show_error=True,
         )
-
 
 def main(
     model_name: str,
@@ -346,7 +338,6 @@ def main(
         if vllm_server:
             cleanup(None, None, vllm_server)
 
-
 def docext_app():
     args = parse_args()
     logger.info(f"Config:\n{args}")
@@ -366,7 +357,6 @@ def docext_app():
         args.dtype,
         args.max_gen_tokens,
     )
-
 
 if __name__ == "__main__":
     docext_app()
