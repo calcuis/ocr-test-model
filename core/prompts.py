@@ -4,8 +4,6 @@ import pandas as pd
 from PIL import Image
 
 from .utils import encode_image
-# from docext.core.utils import encode_image
-
 
 def _get_name_desc_prompt(fields: list[str], fields_description: list[str]) -> str:
     return "\n".join(
@@ -15,10 +13,8 @@ def _get_name_desc_prompt(fields: list[str], fields_description: list[str]) -> s
         ],
     )
 
-
 def _get_fields_output_format(fields: list[str]) -> dict:
     return {field.replace(" ", "_").lower(): "..." for field in fields}
-
 
 def get_fields_messages(
     fields: list[str],
@@ -52,10 +48,8 @@ def get_fields_messages(
     ]
     return messages
 
-
 def _get_tables_output_format(columns: list[str]) -> str:
     return pd.DataFrame({col: [".."] for col in columns}).to_markdown(index=False)
-
 
 def get_tables_messages(
     columns_names: list[str],
