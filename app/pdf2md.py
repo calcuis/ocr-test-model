@@ -12,9 +12,6 @@ import gradio as gr
 
 from ..core.pdf2md.pdf2md import convert_to_markdown_stream
 from ..core.utils import convert_files_to_images
-# from docext.core.pdf2md.pdf2md import convert_to_markdown_stream
-# from docext.core.utils import convert_files_to_images
-
 
 def process_tags(content: str) -> str:
     content = content.replace("<img>", "&lt;img&gt;")
@@ -27,7 +24,6 @@ def process_tags(content: str) -> str:
     content = content.replace("</signature>", "&lt;/signature&gt;")
 
     return content
-
 
 def pdf_to_markdown_ui(
     model_name: str, max_img_size: int, concurrency_limit: int, max_gen_tokens: int
