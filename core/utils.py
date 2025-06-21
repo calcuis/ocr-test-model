@@ -8,13 +8,10 @@ from typing import Union
 import pandas as pd
 from PIL import Image
 from .file_converters.pdf_converter import PDFConverter
-# from docext.core.file_converters.pdf_converter import PDFConverter
-
 
 def encode_image(image_path):
     with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode("utf-8")
-
 
 def validate_fields_and_tables(fields_and_tables: dict | pd.DataFrame):
 
@@ -46,13 +43,11 @@ def validate_fields_and_tables(fields_and_tables: dict | pd.DataFrame):
 
     return fields_and_tables
 
-
 def resize_images(file_paths: list[str], max_img_size: int):
     for file_path in file_paths:
         img = Image.open(file_path)
         img = img.resize((max_img_size, max_img_size))
         img.save(file_path)
-
 
 def validate_file_paths(file_paths: list[str]):
     # TODO: add support for s3 image urls
