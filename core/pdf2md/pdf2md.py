@@ -11,11 +11,6 @@ from ..utils import convert_files_to_images
 from ..utils import encode_image
 from ..utils import resize_images
 from ..utils import validate_file_paths
-# from docext.core.utils import convert_files_to_images
-# from docext.core.utils import encode_image
-# from docext.core.utils import resize_images
-# from docext.core.utils import validate_file_paths
-
 
 def stream_request(
     messages: list[dict],
@@ -169,7 +164,6 @@ def convert_to_markdown_stream(
     # print raw model response
     logger.info(f"Raw model response:\n {full_markdown_content}")
     logger.info("Successfully completed document conversion")
-
 
 def convert_to_markdown(
     file_inputs, model_name, max_img_size, concurrency_limit, max_gen_tokens
