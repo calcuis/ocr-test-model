@@ -7,8 +7,6 @@ from typing import Optional
 from pdf2image import convert_from_path
 
 from .file_converter import FileConverter
-# from docext.core.file_converters.file_converter import FileConverter
-
 
 class PDFConverter(FileConverter):
     def convert_to_images(self, file_path: str):
