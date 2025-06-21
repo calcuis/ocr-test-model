@@ -5,10 +5,8 @@ import signal
 import subprocess
 import threading
 import time
-
 import requests
 from loguru import logger
-
 
 class VLLMServer:
     def __init__(
