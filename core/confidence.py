@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-
 def get_fields_confidence_score_messages_binary(
     messages: list[dict],
     assistant_response: str,
@@ -15,7 +14,6 @@ def get_fields_confidence_score_messages_binary(
         },
     )
     return messages
-
 
 def get_fields_confidence_score_messages_numeric(
     messages: list[dict],
