@@ -9,7 +9,6 @@ import mdpd
 import pandas as pd
 from loguru import logger
 
-
 from .client import sync_request
 from .confidence import get_fields_confidence_score_messages_binary
 from .prompts import get_fields_messages
@@ -18,15 +17,6 @@ from .utils import convert_files_to_images
 from .utils import resize_images
 from .utils import validate_fields_and_tables
 from .utils import validate_file_paths
-# from docext.core.client import sync_request
-# from docext.core.confidence import get_fields_confidence_score_messages_binary
-# from docext.core.prompts import get_fields_messages
-# from docext.core.prompts import get_tables_messages
-# from docext.core.utils import convert_files_to_images
-# from docext.core.utils import resize_images
-# from docext.core.utils import validate_fields_and_tables
-# from docext.core.utils import validate_file_paths
-
 
 def extract_fields_from_documents(
     file_paths: list[str],
@@ -106,7 +96,6 @@ def extract_fields_from_documents(
     final_df = pd.concat(dfs, ignore_index=True)
     return final_df
 
-
 def extract_tables_from_documents(
     file_paths: list[str],
     model_name: str,
@@ -128,7 +117,6 @@ def extract_tables_from_documents(
     df = mdpd.from_md(response)
 
     return df
-
 
 def extract_information(
     file_inputs: list[tuple],
