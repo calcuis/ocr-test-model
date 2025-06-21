@@ -1,10 +1,8 @@
 from __future__ import annotations
 
 import os
-
 import requests
 from litellm import completion
-
 
 def sync_request(
     messages: list[dict],
